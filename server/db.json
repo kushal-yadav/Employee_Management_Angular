@@ -1,0 +1,34 @@
+{
+  "employees": [
+    {
+      "name": "abcdsafas",
+      "email": "abcd@gmail.com",
+      "phone": "1234567890",
+      "id": 1
+    },
+    {
+      "name": "lmn",
+      "email": "lmn@gmail.com",
+      "phone": "4567891230",
+      "id": 2
+    },
+    {
+      "name": "xyz",
+      "email": "xyz@gmail.com",
+      "phone": "7894561230",
+      "id": 3
+    },
+    {
+      "name": "OPQ",
+      "email": "opq@gmail.com",
+      "phone": "3456789120",
+      "id": 4
+    },
+    {
+      "name": "abcdef",
+      "email": "ijk@gmail.com",
+      "phone": "7894561234",
+      "id": 5
+    }
+  ]
+}

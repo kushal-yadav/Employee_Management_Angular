@@ -1,0 +1,40 @@
+<div class="container custom-container-2">
+ <div class="no-data text-center" *ngIf="Employee.length == 0">
+  <p>There is no employee added yet!</p>
+ </div>
+ <div *ngIf="Employee.length !== 0">
+  <h5 class="mb-3 text-center">Employees List</h5>
+  <div class="col-md-12">
+   <div class="row float-right mb-3">
+    <select class="form-control select2 col-sm-4 btn btn-outline-secondary" type="text" [(ngModel)]="searchOption" (change)="selectedSearchOption(searchOption)">
+        <option value="none" selected disabled hidden> 
+          Select 
+      </option> 
+        <option *ngFor="let header of headers" value={{header.key}}>{{header.key | titlecase}}</option>
+        </select>
+    <input type="text" class="form-control col-sm-6" placeholder="search" [(ngModel)]="searchData">
+   </div>
+   <table class="table table-sm table-hover table-dark table-borderless table-responsive-sm smallFont">
+    <thead>
+     <tr>
+      <th *ngFor="let header of headers" scope="col" (click)="sortData(header.key)">
+       {{header.key | titlecase}}
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let employee of Employee | employeeFilter: searchData : headers ">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name | titlecase}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.phone}}</td>
+      <td class="table-light">
+       <button class="edit btn btn-outline-secondary mr-2 " (click)="editEmployee(employee.id) ">Edit</button>
+       <button class="delete btn btn btn-outline-danger " (click)="deleteEmployee(employee.id) ">Delete</button>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>

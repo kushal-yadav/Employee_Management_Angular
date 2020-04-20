@@ -1,0 +1,59 @@
+<div class="col-md-12 smallFont">
+ <h5 class="mb-3 text-center">Employee</h5>
+ <form [formGroup]="employeeFormGroup" #f="ngForm">
+  <div class="form-group">
+   <div class="row">
+    <div class="col-md-3">
+     <label>Name:</label>
+    </div>
+    <div class="col-md-9">
+     <input type="text" class="form-control" placeholder="Name" formControlName="name" value="employeeFormGroup.get('name').value">
+     <div *ngIf="!employeeFormGroup.get('name').valid && employeeFormGroup.get('name').touched">
+      <div class="error-block" *ngIf="employeeFormGroup.get('name').errors.required">Name is required field. Please enter the name.</div>
+      <div class="error-block" *ngIf="employeeFormGroup.get('name').errors.minlength">
+       Name must be at least 3 characters long.
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="row">
+    <div class="col-md-3">
+     <label>Email Id:</label>
+    </div>
+    <div class="col-md-9">
+     <input type="email" class="form-control" placeholder="Email" formControlName="email" value="employeeFormGroup.get('email').value">
+     <div *ngIf="!employeeFormGroup.get('email').valid && employeeFormGroup.get('email').touched">
+      <div class="error-block" *ngIf="employeeFormGroup.get('email').errors.required">Email is required field. Please enter the email.</div>
+      <div class="error-block" *ngIf="employeeFormGroup.get('email').errors.pattern">
+       Please enter the email in required format: a@b.c
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="row">
+    <div class="col-md-3">
+     <label>Phone No.:</label>
+    </div>
+    <div class="col-md-9">
+     <input type="text" class="form-control" placeholder="Phone" formControlName="phone" value="employeeFormGroup.get('phone').value">
+     <div *ngIf="!employeeFormGroup.get('phone').valid && employeeFormGroup.get('phone').touched">
+      <div class="error-block" *ngIf="employeeFormGroup.get('phone').errors.required">Phone number is required field. Please enter the phone number..</div>
+      <div class="error-block" *ngIf="employeeFormGroup.get('phone').errors.minlength">
+       Phone number should be of 10 digits only.
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="form-group">
+   <button class="btn btn-success" [disabled]="!employeeFormGroup.valid" (click)="addEmployee()">Save</button>
+  </div>
+ </form>
+</div>
+<div class="div">
+ <app-employees-list></app-employees-list>
+</div>

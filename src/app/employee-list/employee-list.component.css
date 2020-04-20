@@ -1,0 +1,11 @@
+.edit {
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.smallFont {
+    font-size: 14px;
+}
